@@ -27,10 +27,6 @@ void espm::Combiner::AddSource(Browser* src, const char* fileName) noexcept
 
 std::unique_ptr<espm::CombineBrowser> Combiner::Combine()
 {
-  if (pImpl->numSources > std::size(pImpl->sources)) {
-    throw CombineError("too many sources");
-  }
-
   for (size_t i = 0; i < pImpl->numSources; ++i) {
     auto& src = pImpl->sources[i];
     if (!src.br) {
